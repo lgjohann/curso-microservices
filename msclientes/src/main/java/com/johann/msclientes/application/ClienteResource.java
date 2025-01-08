@@ -3,6 +3,7 @@ package com.johann.msclientes.application;
 import com.johann.msclientes.application.representation.ClienteSaveRequest;
 import com.johann.msclientes.domain.Cliente;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,12 +14,14 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/clientes")
 @RequiredArgsConstructor
+@Slf4j
 public class ClienteResource {
 
     private final ClienteService clienteService;
 
     @GetMapping
     public String status() {
+        log.info("Obtendo o status do microservice de clientes: ");
         return "ok";
     }
 
